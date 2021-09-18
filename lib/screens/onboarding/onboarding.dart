@@ -10,7 +10,7 @@ class Onboarding extends StatelessWidget {
       itemBuilder: (context, index) => Center(
         child: Text(
           'You Are ON Page No. $index',
-          style: Theme.of(context).textTheme.subtitle1,
+          style: Theme.of(context).textTheme.subtitle2,
         ),
       ),
     );
