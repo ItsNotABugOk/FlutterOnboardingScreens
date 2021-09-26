@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:rive/rive.dart';
+
 import 'package:loginui/screens/onboarding/onboarding_models.dart';
 import 'color_provider.dart';
 
@@ -73,7 +75,13 @@ class _OnboardingPageState extends State<OnboardingPage>
                       offset: Offset(_animation.value, 0),
                       child: Padding(
                         padding: const EdgeInsets.only(top: 100),
-                        child: Image.asset(widget.onboardModel.imagePath),
+                        // child: Image.asset(widget.onboardModel.imagePath),
+                        child: SizedBox(
+                          height: 300,
+                          width: 300,
+                          child: RiveAnimation.asset(
+                              widget.onboardModel.imagePath),
+                        ),
                       ),
                     );
                   }),
