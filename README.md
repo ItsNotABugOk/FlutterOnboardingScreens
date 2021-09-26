@@ -1,8 +1,14 @@
 # loginui
 
+<h3 align="center"><b>
+  &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160 &#160  Sample<b></h3>
+<a ><img align="right" src="https://github.com/ItsNotABugOk/FlutterOnboardingScreens/blob/main/Extra_For_ReadMe/sample.gif" height=510 width="250" > </a>
+
+
 A new Flutter project.
 
 ## Getting Started
+
 
 This project is a starting point for a Flutter application.
 
