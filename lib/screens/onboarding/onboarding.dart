@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:loginui/screens/onboarding/onboard_data.dart';
+import 'color_provider.dart';
 import 'onboarding_page.dart';
 
-class Onboarding extends StatefulWidget {
-  const Onboarding({Key? key}) : super(key: key);
+// ignore: must_be_immutable
+class Onboarding extends StatelessWidget {
+  Onboarding({Key? key}) : super(key: key);
 
-  @override
-  State<Onboarding> createState() => _OnboardingState();
-}
-
-class _OnboardingState extends State<Onboarding> {
   PageController pageController = PageController();
 
   @override
   Widget build(BuildContext context) {
+    ColorProvider colorProvider = context.watch<ColorProvider>();
+
     return Stack(
       children: [
         PageView.builder(
@@ -40,8 +40,10 @@ class _OnboardingState extends State<Onboarding> {
                   padding: const EdgeInsets.only(left: 15.0),
                   child: Text(
                     'Some Text',
-                    style: Theme.of(context).textTheme.subtitle2!.copyWith(
-                        color: Theme.of(context).primaryColor.withOpacity(0.7)),
+                    style: Theme.of(context)
+                        .textTheme
+                        .subtitle2!
+                        .copyWith(color: colorProvider.color.withOpacity(0.7)),
                   ),
                 ),
                 Padding(
@@ -49,8 +51,7 @@ class _OnboardingState extends State<Onboarding> {
                   child: Text(
                     'Skip',
                     style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                          color:
-                              Theme.of(context).primaryColor.withOpacity(0.9),
+                          color: colorProvider.color.withOpacity(0.7),
                         ),
                   ),
                 ),

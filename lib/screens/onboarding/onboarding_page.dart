@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:loginui/screens/onboarding/onboarding_models.dart';
+import 'color_provider.dart';
 
 import 'drawer_paint.dart';
 
@@ -25,7 +27,11 @@ class _OnboardingPageState extends State<OnboardingPage>
   void initState() {
     super.initState();
     _controller = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 900));
+      vsync: this,
+      duration: const Duration(
+        milliseconds: 900,
+      ),
+    );
     _animation = Tween<double>(begin: -30, end: 0).animate(
       CurvedAnimation(
         parent: _controller,
@@ -41,6 +47,15 @@ class _OnboardingPageState extends State<OnboardingPage>
   void dispose() {
     super.dispose();
     _controller.dispose();
+  }
+
+  void nextButtonPressed() {
+    context.read<ColorProvider>().color = widget.onboardModel.nextAccentColor;
+
+    widget.pageController.nextPage(
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.easeInOut,
+    );
   }
 
   @override
@@ -132,13 +147,6 @@ class _OnboardingPageState extends State<OnboardingPage>
               }),
         ),
       ],
-    );
-  }
-
-  void nextButtonPressed() {
-    widget.pageController.nextPage(
-      duration: const Duration(milliseconds: 300),
-      curve: Curves.easeInOut,
     );
   }
 }

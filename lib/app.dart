@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:loginui/screens/onboarding/color_provider.dart';
 import 'package:loginui/screens/onboarding/onboarding.dart';
 import 'package:loginui/src/settings/settings_controller.dart';
+import 'package:provider/provider.dart';
 
 class MyApp extends StatelessWidget {
   final SettingsController settingsController;
@@ -74,19 +76,12 @@ class MyApp extends StatelessWidget {
           ),
         ),
         themeMode: settingsController.themeMode,
-        builder: (context, child) => const Scaffold(
-          body: Onboarding(),
-
-          // Center(
-          //   child: TextButton(
-          //     onPressed: () {
-          //       settingsController.toggleThemeMode();
-          //     },
-          //     child: Text(
-          //       'Switch Themes',
-          //       style: Theme.of(context).textTheme.subtitle1,
-          //     ),
-          //   ),
+        builder: (context, child) => Scaffold(
+          body: ChangeNotifierProvider(
+            create: (context) => ColorProvider(),
+            builder: (context, child) => Onboarding(),
+            child: Onboarding(),
+          ),
         ),
       ),
     );
